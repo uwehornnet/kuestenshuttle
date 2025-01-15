@@ -1,0 +1,58 @@
+<div class="map" id="karte"></div>
+
+<style>
+	.map {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		inset: 0;
+
+		.mapboxgl-control-container {
+			display: none !important;
+		}
+	}
+</style>
+<script>
+	import mapboxgl from "mapbox-gl";
+	mapboxgl.accessToken = "pk.eyJ1IjoidWhvcm4iLCJhIjoiY2wzZTlocThxMDAydDNicG50anc1b2R1MSJ9.-rO7_-YT3mRs1OtN7_lFhQ";
+
+	const init = (elem) => {
+		const permission = navigator.permissions.query({ name: "geolocation" }).then((result) => {
+			console.log({ result });
+
+			if (result.state === "granted" || result.state === "prompt") {
+				navigator.geolocation.getCurrentPosition((position) => {
+					const currentPosition = [position.coords.latitude, position.coords.longitude];
+
+					const map = new mapboxgl.Map({
+						container: elem,
+						style: "mapbox://styles/uhorn/clo8bv1qm00wl01qmb8pc3a8p",
+						zoom: 14,
+						center: currentPosition.reverse(),
+					});
+					map.scrollZoom.disable();
+				});
+			} else {
+				const map = new mapboxgl.Map({
+					container: elem,
+					style: "mapbox://styles/uhorn/clo8bv1qm00wl01qmb8pc3a8p",
+					zoom: 11,
+					center: [54.313992, 13.0858].reverse(),
+				});
+				map.scrollZoom.disable();
+			}
+		});
+	};
+
+	const elem = document.getElementById("karte");
+	if (elem) {
+		init(elem);
+	}
+
+	if (elem) {
+	}
+</script>

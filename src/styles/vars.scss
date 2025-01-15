@@ -1,0 +1,59 @@
+:root {
+    --primary: #020047;
+    --secondary: #f3ebe2;
+    --light: #f6f6f7;
+    --grey: #9e9e9e;
+    --darker: #d0d0d0;
+    --white: #ffffff;
+    --dark: #020202;
+    --danger: #ff1500;
+    --warning: #ffe600;
+    --info: #003cff;
+
+    --fs-xs: clamp(0.8rem, 0.9056rem + -0.1363vw, 0.8784rem);
+    --fs-s: clamp(0.9372rem, 0.9154rem + 0.1092vw, 1rem);
+    --fs-base: clamp(1rem, 0.913rem + 0.4348vw, 1.25rem);
+    --fs-m: clamp(1.067rem, 0.8947rem + 0.8617vw, 1.5625rem);
+    --fs-l: clamp(1.1385rem, 0.8551rem + 1.4168vw, 1.9531rem);
+    --fs-xl: clamp(1.2148rem, 0.7881rem + 2.1333vw, 2.4414rem);
+    --fs-2xl: clamp(1.2962rem, 0.6855rem + 3.0532vw, 3.0518rem);
+    --fs-3xl: clamp(1.383rem, 0.5372rem + 4.229vw, 3.8147rem);
+
+    --gutter-3xs: clamp(0.25rem, 0.2283rem + 0.1087vw, 0.3125rem);
+    --gutter-2xs: clamp(0.5rem, 0.4565rem + 0.2174vw, 0.625rem);
+    --gutter-xs: clamp(0.75rem, 0.6848rem + 0.3261vw, 0.9375rem);
+    --gutter-s: clamp(1rem, 0.913rem + 0.4348vw, 1.25rem);
+    --gutter-m: clamp(1.5rem, 1.3696rem + 0.6522vw, 1.875rem);
+    --gutter-l: clamp(2rem, 1.8261rem + 0.8696vw, 2.5rem);
+    --gutter-xl: clamp(3rem, 2.7391rem + 1.3043vw, 3.75rem);
+    --gutter-2xl: clamp(4rem, 3.6522rem + 1.7391vw, 5rem);
+    --gutter-3xl: clamp(6rem, 5.4783rem + 2.6087vw, 7.5rem);
+    --gutter-4xl: clamp(8rem, 7.25rem + 3.2vw, 12rem);
+
+    --width: 1200px;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Afacad", sans-serif;
+    background-color: var(--white);
+    font-size: var(--fs-base);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: 100vh;
+    line-height: 1.15;
+    width: 100vw;
+    overflow-x: hidden;
+
+    main {
+        flex: 1;
+    }
+}

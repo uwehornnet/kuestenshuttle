@@ -1,0 +1,63 @@
+---
+import DefaultLayout from "@layouts/DefaultLayout.astro";
+import Map from "@components/Map.astro";
+import BookingForm from "@components/BookingForm.astro";
+---
+
+<DefaultLayout>
+	<div class="layout">
+		<div class="layout__form">
+			<BookingForm />
+		</div>
+		<div class="layout__map">
+			<Map />
+		</div>
+	</div>
+</DefaultLayout>
+
+<style lang="scss">
+	.layout {
+		width: 100%;
+		max-width: 1600px;
+		margin: 0 auto;
+		display: flex;
+		flex-direction: row;
+		align-items: flex-start;
+		justify-content: flex-start;
+		flex: 1;
+		padding-top: var(--gutter-s);
+		padding-bottom: var(--gutter-s);
+		padding-left: var(--gutter-s);
+		padding-right: var(--gutter-s);
+		gap: var(--gutter-l);
+		@media screen and (max-width: 1024px) {
+			gap: var(--gutter-m);
+		}
+
+		@media screen and (max-width: 768px) {
+			gap: var(--gutter-s);
+			flex-direction: column;
+		}
+
+		&__form {
+			flex: 1;
+			width: 100%;
+			max-width: 400px;
+			@media screen and (max-width: 1024px) {
+				max-width: 280px;
+			}
+
+			@media screen and (max-width: 768px) {
+				flex: 0;
+				max-width: 100%;
+			}
+		}
+
+		&__map {
+			flex: 1;
+			width: 100%;
+			align-self: stretch;
+			position: relative;
+		}
+	}
+</style>

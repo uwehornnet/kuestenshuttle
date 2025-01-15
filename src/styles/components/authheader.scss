@@ -1,0 +1,56 @@
+.authheader {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    max-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100vw;
+
+    @media screen and (max-width: 768px) {
+        max-height: 30vh;
+    }
+
+    &__background {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        inset: 0;
+    }
+
+    &__logo {
+        position: relative;
+        width: 100%;
+        max-width: 320px;
+        height: auto;
+        fill: white;
+
+        @media screen and (max-width: 768px) {
+            max-width: 200px;
+        }
+    }
+
+    &__car {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        transform: translate(35%, 50%);
+        transition: all ease 0.5s;
+
+        @media screen and (max-width: 1024px) {
+            max-width: 750px;
+            height: auto;
+            transition: all ease 0.5s;
+        }
+
+        @media screen and (max-width: 768px) {
+            max-width: 130vw;
+            height: auto;
+            transition: all ease 0.5s;
+        }
+    }
+}

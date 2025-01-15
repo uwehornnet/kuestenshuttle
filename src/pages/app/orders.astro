@@ -1,0 +1,126 @@
+---
+import DefaultLayout from "@layouts/DefaultLayout.astro";
+
+import { Picture } from "astro:assets";
+import Banner from "@assets/banner.jpg";
+
+import Orders from "@react/Orders";
+---
+
+<DefaultLayout>
+	<div class="layout">
+		<div class="layout__header">
+			<h1>Bevorstehende Fahrten</h1>
+			<Picture src={Banner} alt="Banner" class="layout__banner" formats={["avif", "webp"]} />
+
+			<p>Du hast keine bevorstehenden Fahrten.</p>
+			<a href="/app">
+				<svg width="14" height="14" viewBox="0 0 14 14" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+					<path
+						fill-rule="evenodd"
+						clip-rule="evenodd"
+						d="M3.6001 0.600006C3.75923 0.600006 3.91184 0.66322 4.02436 0.775742C4.13688 0.888264 4.2001 1.04088 4.2001 1.20001V2.20001H9.8001V1.20001C9.8001 1.04088 9.86331 0.888264 9.97583 0.775742C10.0884 0.66322 10.241 0.600006 10.4001 0.600006C10.5592 0.600006 10.7118 0.66322 10.8244 0.775742C10.9369 0.888264 11.0001 1.04088 11.0001 1.20001V2.20001H11.2001C11.7836 2.20001 12.3432 2.43179 12.7557 2.84437C13.1683 3.25695 13.4001 3.81653 13.4001 4.40001V11.2C13.4001 11.7835 13.1683 12.3431 12.7557 12.7556C12.3432 13.1682 11.7836 13.4 11.2001 13.4H2.8001C2.21662 13.4 1.65704 13.1682 1.24446 12.7556C0.831883 12.3431 0.600098 11.7835 0.600098 11.2V4.40001C0.600098 3.81653 0.831883 3.25695 1.24446 2.84437C1.65704 2.43179 2.21662 2.20001 2.8001 2.20001H3.0001V1.20001C3.0001 1.04088 3.06331 0.888264 3.17583 0.775742C3.28836 0.66322 3.44097 0.600006 3.6001 0.600006ZM2.8001 5.00001C2.2481 5.00001 1.8001 5.44801 1.8001 6.00001V11.2C1.8001 11.752 2.2481 12.2 2.8001 12.2H11.2001C11.7521 12.2 12.2001 11.752 12.2001 11.2V6.00001C12.2001 5.44801 11.7521 5.00001 11.2001 5.00001H2.8001Z"
+					></path>
+				</svg>
+
+				<span>Fahrt reservieren</span>
+			</a>
+		</div>
+		<div class="layout__main">
+			<div class="layout__main--head">
+				<h2>Vergangene Fahrten</h2>
+				<div class="filter">
+					<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path
+							fill-rule="evenodd"
+							clip-rule="evenodd"
+							d="M3.6001 0.600006C3.75923 0.600006 3.91184 0.66322 4.02436 0.775742C4.13688 0.888264 4.2001 1.04088 4.2001 1.20001V2.20001H9.8001V1.20001C9.8001 1.04088 9.86331 0.888264 9.97583 0.775742C10.0884 0.66322 10.241 0.600006 10.4001 0.600006C10.5592 0.600006 10.7118 0.66322 10.8244 0.775742C10.9369 0.888264 11.0001 1.04088 11.0001 1.20001V2.20001H11.2001C11.7836 2.20001 12.3432 2.43179 12.7557 2.84437C13.1683 3.25695 13.4001 3.81653 13.4001 4.40001V11.2C13.4001 11.7835 13.1683 12.3431 12.7557 12.7556C12.3432 13.1682 11.7836 13.4 11.2001 13.4H2.8001C2.21662 13.4 1.65704 13.1682 1.24446 12.7556C0.831883 12.3431 0.600098 11.7835 0.600098 11.2V4.40001C0.600098 3.81653 0.831883 3.25695 1.24446 2.84437C1.65704 2.43179 2.21662 2.20001 2.8001 2.20001H3.0001V1.20001C3.0001 1.04088 3.06331 0.888264 3.17583 0.775742C3.28836 0.66322 3.44097 0.600006 3.6001 0.600006ZM2.8001 5.00001C2.2481 5.00001 1.8001 5.44801 1.8001 6.00001V11.2C1.8001 11.752 2.2481 12.2 2.8001 12.2H11.2001C11.7521 12.2 12.2001 11.752 12.2001 11.2V6.00001C12.2001 5.44801 11.7521 5.00001 11.2001 5.00001H2.8001Z"
+							fill="#020047"></path>
+					</svg>
+
+					<select>
+						<option value="all">alle Fahrten</option>
+						<option value="last-14-days">letzten 30 Tage</option>
+						<option value="this-month">dieser Monat</option>
+						<option value="last-month">letzter Monat</option>
+					</select>
+				</div>
+			</div>
+			<Orders client:only />
+		</div>
+	</div>
+</DefaultLayout>
+
+<style lang="scss">
+	.layout {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		max-width: 1024px;
+		margin: 0 auto;
+		padding: var(--gutter-m);
+
+		&__header {
+			padding: var(--gutter-2xs);
+			padding-bottom: var(--gutter-l);
+			margin-bottom: var(--gutter-l);
+			border-bottom: 2px solid var(--secondary);
+
+			h1 {
+				font-size: var(--fs-m);
+				margin-bottom: var(--gutter-xs);
+			}
+
+			a {
+				color: inherit;
+				text-decoration: none;
+				display: flex;
+				max-width: 160px;
+				gap: var(--gutter-2xs);
+				align-items: center;
+				justify-content: center;
+				padding: var(--gutter-3xs) var(--gutter-2xs);
+				border-radius: var(--gutter-3xs);
+				background-color: var(--secondary);
+				font-size: var(--fs-s);
+				margin-top: var(--gutter-xs);
+			}
+		}
+
+		&__banner {
+			width: 100%;
+			height: auto;
+			margin-bottom: var(--gutter-m);
+		}
+
+		&__main {
+			&--head {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+
+				h2 {
+					font-size: var(--fs-m);
+					margin-bottom: var(--gutter-xs);
+				}
+
+				.filter {
+					display: flex;
+					align-items: center;
+					gap: var(--gutter-2xs);
+					background-color: var(--secondary);
+					padding: var(--gutter-3xs) var(--gutter-xs);
+					border-radius: var(--gutter-3xs);
+
+					select {
+						appearance: none;
+						border: none;
+						outline: none;
+						background-color: transparent;
+						font-size: var(--fs-xs);
+					}
+				}
+			}
+		}
+	}
+</style>
