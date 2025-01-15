@@ -3,6 +3,25 @@ const { pathname } = Astro.url;
 console.log({ pathname });
 ---
 
+<nav class="menu" id="menu-body">
+	<div class="menu__background"></div>
+	<div class="menu__aside">
+		<ul class="menu__list">
+			<li class="menu__item">
+				<a href="/app">neue Fahrt</a>
+			</li>
+			<li class="menu__item">
+				<a href="/app/orders">meine Fahrten</a>
+			</li>
+			<li class="menu__item">
+				<a href="/app/profile">Profile</a>
+			</li>
+			<li class="menu__item">
+				<a href="/logout">Logout</a>
+			</li>
+		</ul>
+	</div>
+</nav>
 <header class="header">
 	<div class="header__container">
 		<div class="header__container--left">
@@ -106,15 +125,6 @@ console.log({ pathname });
 					></path>
 				</svg>
 			</button>
-
-			<ul class="menu" id="menu-body">
-				<li class="menu__item">
-					<a href="/app/profile">Profile</a>
-				</li>
-				<li class="menu__item">
-					<a href="/logout">Logout</a>
-				</li>
-			</ul>
 		</div>
 	</div>
 </header>

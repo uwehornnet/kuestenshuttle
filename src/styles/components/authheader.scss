@@ -38,17 +38,17 @@
         position: absolute;
         bottom: 0;
         right: 0;
-        transform: translate(35%, 50%);
+        transform: translate(0%, 50%);
         transition: all ease 0.5s;
 
         @media screen and (max-width: 1024px) {
-            max-width: 750px;
+            max-width: 540px;
             height: auto;
             transition: all ease 0.5s;
         }
 
         @media screen and (max-width: 768px) {
-            max-width: 130vw;
+            max-width: 70vw;
             height: auto;
             transition: all ease 0.5s;
         }
